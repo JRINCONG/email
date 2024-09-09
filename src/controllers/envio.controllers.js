@@ -12,7 +12,7 @@ const getAll = catchError(async(req, res) => {
 						<p>Hola Mi nombre es ${Nombre} ${Apellido}, trabajo en la empresa ${Empresa}</p><br/>
                         <p> este es mi correo ${Email} y mi numero de telefono es ${Telefono}  te dejo esta informacion: ${Mensage}</p>
 				</div>
-		` // con backtics ``
+		`
 })
 
 return res.status(200).json({
