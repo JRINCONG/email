@@ -1,16 +1,15 @@
 const catchError = require('../utils/catchError');
-const {sendEmail} = require('../utils/sendEmail')
+const { sendEmail } = require('../utils/sendEmail')
 
 const getAll = catchError(async(req, res) => {
-    const {Nombre, Apellido, Email, Empresa, Mensage, Telefono}= req.body
-
+    
     await sendEmail({
-		to: process.env.EMAIL, // Email del receptor
+		to: 'rincon303@gmail.com', // Email del receptor
 		subject: "Enviado desde mi CV", // asunto
 		html: ` 
 				<div>
-						<p>Hola Mi nombre es ${Nombre} ${Apellido}, trabajo en la empresa ${Empresa}</p><br/>
-                        <p> este es mi correo ${Email} y mi numero de telefono es ${Telefono}  te dejo esta informacion: ${Mensage}</p>
+						<p>Hola Mi nombre es ${req.body.Nombre} ${req.body.Apellido}, trabajo en la empresa ${req.body.Empresa}</p><br/>
+                        <p> este es mi correo ${req.body.Email} y mi numero de telefono es ${req.body.Telefono}  te dejo esta informacion: ${req.body.Mensage}</p>
 				</div>
 		`
 })
